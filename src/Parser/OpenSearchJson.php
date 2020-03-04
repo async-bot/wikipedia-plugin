@@ -8,7 +8,7 @@ use AsyncBot\Plugin\Wikipedia\ValueObject\Search\OpenSearchResult;
 final class OpenSearchJson
 {
     /**
-     * @param array<string,mixed> $result
+     * @param array<int,string|array<int,string>> $result
      */
     public function parse(array $result): OpenSearchResults
     {
