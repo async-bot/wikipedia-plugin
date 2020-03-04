@@ -5,7 +5,7 @@ namespace AsyncBot\Plugin\WikipediaTest\Unit\Parser;
 use AsyncBot\Plugin\Wikipedia\Parser\OpenSearchJson;
 use PHPUnit\Framework\TestCase;
 
-final class Parser extends TestCase
+final class OpenSearchJsonTest extends TestCase
 {
     private OpenSearchJson $parser;
 
