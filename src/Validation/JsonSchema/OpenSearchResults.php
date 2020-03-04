@@ -2,21 +2,16 @@
 
 namespace AsyncBot\Plugin\Wikipedia\Validation\JsonSchema;
 
-use Opis\JsonSchema\Schema;
-use Opis\JsonSchema\Validator;
-use function ExceptionalJSON\decode;
-use function ExceptionalJSON\encode;
+use AsyncBot\Core\Http\Validation\JsonSchema;
 
-final class SearchResults
+final class OpenSearchResults extends JsonSchema
 {
-    private string $schema;
-
     public function __construct()
     {
-        $this->schema = encode([
-            '$id'     => 'AsyncBot/Plugin/Wikipedia/search-results.json',
+        parent::__construct([
+            '$id'     => 'AsyncBot/Plugin/Wikipedia/open-search-results.json',
             '$schema' => 'http://json-schema.org/draft-07/schema#',
-            'title'   => 'Wikipedia search results',
+            'title'   => 'Wikipedia API:Opensearch results',
             'type'    => 'array',
             'items'   => [
                 [
@@ -30,15 +25,8 @@ final class SearchResults
                 ],
                 [
                     'type' => 'array',
-                ]
+                ],
             ],
         ]);
-    }
-
-    public function validateJson(string $json): bool
-    {
-        $schema = Schema::fromJsonString($this->schema);
-
-        return (new Validator())->schemaValidation(decode($json), $schema)->isValid();
     }
 }

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace AsyncBot\Plugin\Wikipedia\ValueObject\SearchResult;
+namespace AsyncBot\Plugin\Wikipedia\ValueObject\Search;
 
-final class Hit
+final class OpenSearchResult
 {
     private string $title;
 
